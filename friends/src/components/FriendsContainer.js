@@ -1,6 +1,7 @@
 import React from 'react';
 import FriendCard from "./FriendCard"
 import FriendForm from './FriendForm';
+import './FriendCard.css';
 
 const FriendsList = (props) => {
     console.log("Friends List:", props.friends)

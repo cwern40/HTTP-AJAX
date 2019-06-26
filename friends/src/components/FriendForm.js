@@ -7,7 +7,7 @@ const FriendForm = (props) => {
             <h3>Add a new friend</h3>
             <form>
                 <input type="text" placeholder="Enter friend's name..." />
-                <input type="text" placeholder="Enter friend's email.." />
+                <input type="text" placeholder="Enter friend's email..." />
                 <input type ="text" placeholder="Enter friend's age..." />
             </form>
         </div>
