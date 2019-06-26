@@ -1,5 +1,6 @@
 import React from 'react';
 import FriendCard from "./FriendCard"
+import FriendForm from './FriendForm';
 
 const FriendsList = (props) => {
     console.log("Friends List:", props.friends)
@@ -8,6 +9,7 @@ const FriendsList = (props) => {
             {props.friends.map((friend) =>(
                 <FriendCard key= {friend.id} friend={friend} />
             ))}
+            <FriendForm friend={props.friends} />
         </div>
     );
 };
