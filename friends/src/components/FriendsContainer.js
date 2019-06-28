@@ -10,7 +10,7 @@ const FriendsList = (props) => {
             {props.friends.map((friend) =>(
                 <FriendCard key= {friend.id} friend={friend} />
             ))}
-            <FriendForm friend={props.friends} />
+            <FriendForm friend={props.friends} updateList={props.updateList} />
         </div>
     );
 };

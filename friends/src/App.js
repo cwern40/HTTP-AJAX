@@ -23,10 +23,14 @@ class App extends React.Component {
       })
   }
 
+  updateList = (friends) => {
+    this.setState({ friends });
+  }
+
   render() {
     return (
       <div className="App">
-        <FriendsList friends={this.state.friends} />
+        <FriendsList friends={this.state.friends} updateList={this.updateList}/>
       </div>
     );
   }
