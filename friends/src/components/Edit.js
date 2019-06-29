@@ -12,17 +12,18 @@ class Edit extends React.Component {
     }
 
     componentDidMount() {
-        console.log(this.props.friends);
-        const current = this.props.match.params.id;
-        this.props.friends.map((friend) => {
-            if (friend.id === current) {
-                this.setState({
-                    name: friend.name,
-                    email: friend.email,
-                    age: friend.age
-                })
-            }}
-        )
+        const id = this.props.match.params.id;
+        console.log(`http://localhost:5000/friends/${id}`)
+        axios.get(`http://localhost:5000/friends/${id}`)
+          .then(response => {
+            console.log("Edit", response)
+            // this.setState({
+            //   friends: response.data
+            // })
+          })
+          .catch(err => {
+            console.log("Error:", err);
+          })
     }
 
     handleChange = (event) => {
@@ -38,21 +39,19 @@ class Edit extends React.Component {
         const age = parseInt(this.state.age);
         const payload = { name, email, age };
         const id = this.props.match.params.id;
+        console.log(`http://localhost:5000/friends/${id}`);
 
         axios.put(`http://localhost:5000/friends/${id}`, payload)
             .then((response) => {
-                console.log("Put Response:", response);
                 this.props.updateList(response.data);
                 this.props.history.push('/');
             })
             .catch((err) => {
-                console.log("Payload", payload);
                 console.log("Error Message:", err)
             })      
     }
 
     render() {
-        console.log("Edit:", this.props);
         const { name, email, age } = this.state;
         return (
             <div className="edit-form">
