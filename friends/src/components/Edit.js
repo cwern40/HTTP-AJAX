@@ -11,6 +11,20 @@ class Edit extends React.Component {
         }
     }
 
+    componentDidMount() {
+        console.log(this.props.friends);
+        const current = this.props.match.params.id;
+        this.props.friends.map((friend) => {
+            if (friend.id === current) {
+                this.setState({
+                    name: friend.name,
+                    email: friend.email,
+                    age: friend.age
+                })
+            }}
+        )
+    }
+
     handleChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value

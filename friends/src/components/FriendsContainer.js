@@ -4,11 +4,10 @@ import FriendForm from './FriendForm';
 import './FriendCard.css';
 
 const FriendsList = (props) => {
-    console.log("Friends List:", props.friends)
     return (
         <div className="friends-container">
             {props.friends.map((friend) =>(
-                <FriendCard key= {friend.id} friend={friend} />
+                <FriendCard key= {friend.id} friend={friend} updateList={props.updateList} />
             ))}
             <FriendForm friend={props.friends} updateList={props.updateList} />
         </div>
